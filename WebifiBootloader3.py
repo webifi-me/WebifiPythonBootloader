@@ -72,7 +72,8 @@ class SerialPort:
 
     def open_serial_port(self):
         self._serial = serial.Serial(port=self._port, baudrate=self._baudrate, parity=self._parity,
-                                     stopbits=self._stop_bits, bytesize=self._number_of_bits, timeout=0.25)
+                                     stopbits=self._stop_bits, bytesize=self._number_of_bits, timeout=0.25,
+                                     rtscts=True)
         # Create thread
         self._running = True
         self._thread = Thread(target=self._update)
